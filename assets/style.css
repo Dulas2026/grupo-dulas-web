@@ -172,14 +172,14 @@ footer.site-footer{background:var(--ink);color:#cfd3d6;padding:52px 0 28px;font-
 /* ---------- Intro (logo cayendo) ---------- */
 #intro{position:fixed;inset:0;background:#0a0a0a;z-index:1000;display:flex;align-items:center;justify-content:center;overflow:hidden;}
 .logo-wrap{position:absolute;top:-260px;display:flex;flex-direction:column;align-items:center;
-  animation: fall 1.5s cubic-bezier(.55,0,.1,1) forwards, settle 0.55s ease-out 1.5s forwards;}
+  animation: fall 1.6s cubic-bezier(.55,0,.1,1) forwards, settle 0.6s ease-out 1.6s forwards;}
 .logo-img{width:150px;max-width:60vw;height:auto;display:block;}
 .logo-sub{margin-top:10px;font-size:11px;letter-spacing:4px;color:#8a8a8a;text-transform:uppercase;opacity:0;
   animation: fadeIn 0.7s ease-out 2s forwards;font-family:var(--sans);}
 .ground-shadow{position:absolute;top:64%;width:200px;height:12px;border-radius:50%;
   background:radial-gradient(closest-side, rgba(255,255,255,0.18), transparent);
-  opacity:0;animation: shadowGrow 0.4s ease-out 1.45s forwards;}
-#curtain{position:absolute;inset:0;background:#0a0a0a;animation: revealFade 0.9s ease-in 2.6s forwards;}
+  opacity:0;animation: shadowGrow 0.4s ease-out 1.55s forwards;}
+#curtain{position:absolute;inset:0;background:#0a0a0a;animation: revealFade 1s ease-in 9s forwards;}
 .skip-intro{position:absolute;bottom:22px;right:26px;color:#888;font-family:var(--sans);font-size:11px;
   letter-spacing:1px;border:1px solid #333;padding:7px 14px;border-radius:16px;cursor:pointer;
   opacity:0;animation: fadeIn 0.6s ease-out 0.6s forwards;background:none;}
