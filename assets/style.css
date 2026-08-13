@@ -171,7 +171,7 @@ footer.site-footer{background:var(--ink);color:#cfd3d6;padding:52px 0 28px;font-
 
 /* ---------- Intro (logo cayendo) ---------- */
 #intro{position:fixed;inset:0;background:#0a0a0a;z-index:1000;display:flex;align-items:center;justify-content:center;overflow:hidden;}
-.logo-wrap{position:absolute;top:-260px;display:flex;flex-direction:column;align-items:center;
+.logo-wrap{display:flex;flex-direction:column;align-items:center;
   animation: fall 1.6s cubic-bezier(.55,0,.1,1) forwards, settle 0.6s ease-out 1.6s forwards;}
 .logo-img{width:380px;max-width:72vw;height:auto;display:block;}
 .logo-sub{margin-top:10px;font-size:11px;letter-spacing:4px;color:#8a8a8a;text-transform:uppercase;opacity:0;
@@ -183,8 +183,8 @@ footer.site-footer{background:var(--ink);color:#cfd3d6;padding:52px 0 28px;font-
 .skip-intro{position:absolute;bottom:22px;right:26px;color:#888;font-family:var(--sans);font-size:11px;
   letter-spacing:1px;border:1px solid #333;padding:7px 14px;border-radius:16px;cursor:pointer;
   opacity:0;animation: fadeIn 0.6s ease-out 0.6s forwards;background:none;}
-@keyframes fall{0%{transform:translateY(0);}70%{transform:translateY(490px);}82%{transform:translateY(465px);}92%{transform:translateY(478px);}100%{transform:translateY(472px);}}
-@keyframes settle{0%{transform:translateY(472px) scale(1);}50%{transform:translateY(472px) scale(1.04,0.94);}100%{transform:translateY(472px) scale(1);}}
+@keyframes fall{0%{transform:translateY(-60vh);}70%{transform:translateY(18px);}82%{transform:translateY(-7px);}92%{transform:translateY(6px);}100%{transform:translateY(0);}}
+@keyframes settle{0%{transform:translateY(0) scale(1);}50%{transform:translateY(0) scale(1.04,0.94);}100%{transform:translateY(0) scale(1);}}
 @keyframes shadowGrow{0%{opacity:0;transform:scale(0.4);}100%{opacity:1;transform:scale(1);}}
 @keyframes fadeIn{to{opacity:1;}}
 @keyframes revealFade{to{opacity:0;visibility:hidden;pointer-events:none;}}
@@ -210,4 +210,5 @@ footer.site-footer{background:var(--ink);color:#cfd3d6;padding:52px 0 28px;font-
 }
 @media (max-width:520px){
   .service-grid{grid-template-columns:1fr;}
+}
 }
