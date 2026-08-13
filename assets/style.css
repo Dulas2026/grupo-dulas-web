@@ -1,4 +1,4 @@
-/* Grupo Dulas — hoja de estilos compartida */
+* Grupo Dulas — hoja de estilos compartida */
 :root{
   --ink:#1b1f23;
   --ink-soft:#4a5158;
@@ -90,6 +90,30 @@ header.site-header{
 .breadcrumb{font-family:var(--sans);font-size:12px;color:#9a9488;margin-bottom:14px;letter-spacing:0.3px;}
 .breadcrumb a{color:var(--accent);}
 .service-icon-big{width:60px;height:60px;border-radius:12px;background:var(--brand-light);display:flex;align-items:center;justify-content:center;font-size:28px;margin-bottom:20px;}
+
+/* ---------- Page hero con imagen de fondo (Servicios) ---------- */
+.page-hero--servicios{
+  position:relative;border-bottom:none;overflow:hidden;
+  padding:150px 0 110px;
+  background:#0a1220 url('servicios-hero-bg.jpg') center 38% / cover no-repeat;
+}
+.page-hero--servicios::before{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(90deg, rgba(6,10,18,0.93) 0%, rgba(6,10,18,0.82) 32%, rgba(6,10,18,0.45) 62%, rgba(6,10,18,0.18) 100%),
+             linear-gradient(0deg, rgba(6,10,18,0.35) 0%, rgba(6,10,18,0) 40%);
+}
+.page-hero--servicios .wrap{position:relative;z-index:1;}
+.page-hero--servicios .breadcrumb{color:rgba(255,255,255,0.55);}
+.page-hero--servicios .breadcrumb a{color:#d9b877;}
+.page-hero--servicios .eyebrow{color:#d9b877;}
+.page-hero--servicios h1{color:#fff;}
+.page-hero--servicios p{color:rgba(255,255,255,0.8);}
+@media (max-width:700px){
+  .page-hero--servicios{padding:100px 0 70px;background-position:68% center;}
+  .page-hero--servicios::before{
+    background:linear-gradient(0deg, rgba(6,10,18,0.95) 0%, rgba(6,10,18,0.75) 55%, rgba(6,10,18,0.55) 100%);
+  }
+}
 
 /* ---------- Sections ---------- */
 section{padding:84px 0;}
@@ -210,5 +234,4 @@ footer.site-footer{background:var(--ink);color:#cfd3d6;padding:52px 0 28px;font-
 }
 @media (max-width:520px){
   .service-grid{grid-template-columns:1fr;}
-}
 }
