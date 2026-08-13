@@ -36,8 +36,9 @@ header.site-header{
   border-bottom:1px solid var(--line);
 }
 .nav{display:flex;align-items:center;justify-content:space-between;padding:18px 0;}
-.logo{font-size:20px;font-weight:700;letter-spacing:0.5px;font-family:var(--serif);}
+.logo{font-size:20px;font-weight:700;letter-spacing:0.5px;font-family:var(--serif);display:inline-flex;align-items:center;line-height:0;}
 .logo span{color:var(--accent);}
+.logo-header-img{height:40px;width:auto;display:block;}
 .nav-links{list-style:none;display:flex;align-items:center;gap:30px;margin:0;padding:0;font-family:var(--sans);font-size:14px;letter-spacing:0.3px;}
 .nav-links > li{position:relative;}
 .nav-links a.nav-link{padding:8px 0;border-bottom:1px solid transparent;transition:border-color .2s, color .2s;display:inline-block;}
@@ -172,8 +173,7 @@ footer.site-footer{background:var(--ink);color:#cfd3d6;padding:52px 0 28px;font-
 #intro{position:fixed;inset:0;background:#0a0a0a;z-index:1000;display:flex;align-items:center;justify-content:center;overflow:hidden;}
 .logo-wrap{position:absolute;top:-260px;display:flex;flex-direction:column;align-items:center;
   animation: fall 1.5s cubic-bezier(.55,0,.1,1) forwards, settle 0.55s ease-out 1.5s forwards;}
-.logo-word{font-size:46px;letter-spacing:6px;color:#f5f2ec;font-weight:300;font-family:var(--serif);}
-.logo-word b{font-weight:700;color:#c99a55;}
+.logo-img{width:150px;max-width:60vw;height:auto;display:block;}
 .logo-sub{margin-top:10px;font-size:11px;letter-spacing:4px;color:#8a8a8a;text-transform:uppercase;opacity:0;
   animation: fadeIn 0.7s ease-out 2s forwards;font-family:var(--sans);}
 .ground-shadow{position:absolute;top:64%;width:200px;height:12px;border-radius:50%;
@@ -183,8 +183,8 @@ footer.site-footer{background:var(--ink);color:#cfd3d6;padding:52px 0 28px;font-
 .skip-intro{position:absolute;bottom:22px;right:26px;color:#888;font-family:var(--sans);font-size:11px;
   letter-spacing:1px;border:1px solid #333;padding:7px 14px;border-radius:16px;cursor:pointer;
   opacity:0;animation: fadeIn 0.6s ease-out 0.6s forwards;background:none;}
-@keyframes fall{0%{transform:translateY(0);}70%{transform:translateY(230px);}82%{transform:translateY(205px);}92%{transform:translateY(218px);}100%{transform:translateY(212px);}}
-@keyframes settle{0%{transform:translateY(212px) scale(1);}50%{transform:translateY(212px) scale(1.04,0.94);}100%{transform:translateY(212px) scale(1);}}
+@keyframes fall{0%{transform:translateY(0);}70%{transform:translateY(490px);}82%{transform:translateY(465px);}92%{transform:translateY(478px);}100%{transform:translateY(472px);}}
+@keyframes settle{0%{transform:translateY(472px) scale(1);}50%{transform:translateY(472px) scale(1.04,0.94);}100%{transform:translateY(472px) scale(1);}}
 @keyframes shadowGrow{0%{opacity:0;transform:scale(0.4);}100%{opacity:1;transform:scale(1);}}
 @keyframes fadeIn{to{opacity:1;}}
 @keyframes revealFade{to{opacity:0;visibility:hidden;pointer-events:none;}}
