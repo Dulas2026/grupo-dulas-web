@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
   // Oculta la intro del todo tras la animación para que no bloquee clics
   if (intro) {
-    setTimeout(function () { intro.style.display = 'none'; }, 3600);
+    setTimeout(function () { intro.style.display = 'none'; }, 9500);
   }
 
   // Mostrar la intro solo la primera vez por sesión de navegador
