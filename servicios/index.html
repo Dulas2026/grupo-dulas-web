@@ -47,49 +47,66 @@
 
 <section class="services">
   <div class="wrap">
-    <div class="service-grid">
-      <a class="service-card" href="facility/">
-        <span class="tag">01</span>
-        <div class="service-icon">🛠️</div>
+    <div class="tabs-services">
+      <div class="tabs-nav"><button class="tab-btn active" data-tab="facility">Facility</button><button class="tab-btn" data-tab="pintura">Pintura</button><button class="tab-btn" data-tab="fontaneria-electricidad">Fontanería y electricidad</button><button class="tab-btn" data-tab="seguridad">Seguridad</button><button class="tab-btn" data-tab="suministros">Suministros</button></div>
+      
+    <div class="tab-panel active" id="panel-facility">
+      <div class="tab-panel-visual"><div class="icon-box">🛠️</div></div>
+      <div class="tab-panel-content">
+        <div class="eyebrow sans">01 &middot; Facility</div>
         <h3>Facility</h3>
-        <p>Mantenimiento integral y gestión de instalaciones para que el inmueble esté siempre operativo.</p>
-        <span class="service-link">Ver servicio &#8594;</span>
-      </a>
-      <a class="service-card" href="pintura/">
-        <span class="tag">02</span>
-        <div class="service-icon">🎨</div>
+        <p>Mantenimiento integral y gestión de instalaciones de inmuebles, para que estén siempre operativos, seguros y en condiciones — tanto si el inmueble está en uso como si está a la espera de venta o alquiler.</p>
+        <ul><li>Diagnóstico</li><li>Plan de actuación</li><li>Ejecución</li><li>Seguimiento</li></ul>
+        <a href="facility/" class="service-link">Ver página completa &#8594;</a>
+      </div>
+    </div>
+    <div class="tab-panel" id="panel-pintura">
+      <div class="tab-panel-visual"><div class="icon-box">🎨</div></div>
+      <div class="tab-panel-content">
+        <div class="eyebrow sans">02 &middot; Pintura</div>
         <h3>Pintura</h3>
-        <p>Pintura interior y exterior para la puesta a punto y conservación de los inmuebles.</p>
-        <span class="service-link">Ver servicio &#8594;</span>
-      </a>
-      <a class="service-card" href="fontaneria-electricidad/">
-        <span class="tag">03</span>
-        <div class="service-icon">🔧</div>
+        <p>Trabajos de pintura interior y exterior para la puesta a punto, conservación y revalorización de los inmuebles antes de su venta, alquiler o simplemente para mantenerlos en buen estado.</p>
+        <ul><li>Visita y presupuesto</li><li>Preparación</li><li>Aplicación</li><li>Entrega</li></ul>
+        <a href="pintura/" class="service-link">Ver página completa &#8594;</a>
+      </div>
+    </div>
+    <div class="tab-panel" id="panel-fontaneria-electricidad">
+      <div class="tab-panel-visual"><div class="icon-box">🔧</div></div>
+      <div class="tab-panel-content">
+        <div class="eyebrow sans">03 &middot; Fontanería y electricidad</div>
         <h3>Fontanería y electricidad</h3>
-        <p>Instalación, reparación y mantenimiento de sistemas de fontanería y electricidad.</p>
-        <span class="service-link">Ver servicio &#8594;</span>
-      </a>
-      <a class="service-card" href="seguridad/">
-        <span class="tag">05</span>
-        <div class="service-icon">🔒</div>
+        <p>Instalación, reparación y mantenimiento de sistemas de fontanería y electricidad, para resolver incidencias o preparar un inmueble para su uso, alquiler o venta.</p>
+        <ul><li>Diagnóstico técnico</li><li>Presupuesto</li><li>Ejecución</li><li>Verificación</li></ul>
+        <a href="fontaneria-electricidad/" class="service-link">Ver página completa &#8594;</a>
+      </div>
+    </div>
+    <div class="tab-panel" id="panel-seguridad">
+      <div class="tab-panel-visual"><div class="icon-box">🔒</div></div>
+      <div class="tab-panel-content">
+        <div class="eyebrow sans">05 &middot; Seguridad</div>
         <h3>Seguridad</h3>
-        <p>Vigilancia y aseguramiento de inmuebles vacíos o en gestión frente a ocupaciones y daños.</p>
-        <span class="service-link">Ver servicio &#8594;</span>
-      </a>
-      <a class="service-card" href="suministros/">
-        <span class="tag">06</span>
-        <div class="service-icon">💡</div>
+        <p>Vigilancia y aseguramiento de inmuebles vacíos o en gestión, para protegerlos frente a ocupaciones, robos o daños mientras están a la espera de venta, alquiler o intervención.</p>
+        <ul><li>Evaluación de riesgo</li><li>Medidas de aseguramiento</li><li>Vigilancia periódica</li><li>Aviso ante incidencias</li></ul>
+        <a href="seguridad/" class="service-link">Ver página completa &#8594;</a>
+      </div>
+    </div>
+    <div class="tab-panel" id="panel-suministros">
+      <div class="tab-panel-visual"><div class="icon-box">💡</div></div>
+      <div class="tab-panel-content">
+        <div class="eyebrow sans">06 &middot; Suministros</div>
         <h3>Suministros</h3>
-        <p>Gestión de altas, bajas y mantenimiento de suministros (agua, luz, gas) de los inmuebles.</p>
-        <span class="service-link">Ver servicio &#8594;</span>
-      </a>
-      <a class="service-card" href="https://www.dulasproperties.com" target="_blank" rel="noopener">
-        <span class="tag">04 &middot; EXTERNO</span>
-        <div class="service-icon">🏠</div>
-        <h3>Inmobiliaria / Real Estate</h3>
-        <p>Comercialización y venta de inmuebles a través de Dulas Properties.</p>
-        <span class="service-link external">Ir a dulasproperties.com &#8599;</span>
-      </a>
+        <p>Gestión de altas, bajas y mantenimiento de los suministros (agua, luz, gas) de los inmuebles que gestionamos, para que estén operativos cuando se necesitan y no generen gastos innecesarios cuando no.</p>
+        <ul><li>Revisión de contratos</li><li>Alta o baja</li><li>Seguimiento</li><li>Informe</li></ul>
+        <a href="suministros/" class="service-link">Ver página completa &#8594;</a>
+      </div>
+    </div>
+      <div class="external-service-banner">
+        <div>
+          <h4>Inmobiliaria / Real Estate</h4>
+          <p>Comercialización y venta de inmuebles en toda España a través de Dulas Properties.</p>
+        </div>
+        <a href="https://www.dulasproperties.com" target="_blank" rel="noopener">Ir a dulasproperties.com &#8599;</a>
+      </div>
     </div>
   </div>
 </section>
