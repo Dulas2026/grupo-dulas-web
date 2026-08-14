@@ -21,20 +21,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  // Servicios en pestañas (página Servicios)
-  var tabBtns = document.querySelectorAll('.tab-btn');
-  if (tabBtns.length) {
-    tabBtns.forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        document.querySelectorAll('.tab-btn').forEach(function (b) { b.classList.remove('active'); });
-        document.querySelectorAll('.tab-panel').forEach(function (p) { p.classList.remove('active'); });
-        btn.classList.add('active');
-        var panel = document.getElementById('panel-' + btn.dataset.tab);
-        if (panel) panel.classList.add('active');
-      });
-    });
-  }
-
   // Intro: saltar animación
   var skip = document.querySelector('.skip-intro');
   var intro = document.getElementById('intro');
