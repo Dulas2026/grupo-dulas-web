@@ -11,13 +11,25 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // Desplegable "Servicios" en móvil (click en vez de hover)
+  // Desplegable "Servicios": se abre al hacer clic (además de al pasar el ratón por encima)
   document.querySelectorAll('.has-dropdown > .nav-link').forEach(function (link) {
     link.addEventListener('click', function (e) {
-      if (window.innerWidth <= 900) {
+      var parent = link.parentElement;
+      if (!parent.classList.contains('open')) {
         e.preventDefault();
-        link.parentElement.classList.toggle('open');
+        document.querySelectorAll('.has-dropdown.open').forEach(function (other) {
+          if (other !== parent) other.classList.remove('open');
+        });
+        parent.classList.add('open');
       }
+      // Si ya estaba abierto, un segundo clic navega con normalidad a Servicios.
+    });
+  });
+
+  // Cierra el desplegable "Servicios" si se hace clic fuera de él
+  document.addEventListener('click', function (e) {
+    document.querySelectorAll('.has-dropdown.open').forEach(function (el) {
+      if (!el.contains(e.target)) el.classList.remove('open');
     });
   });
 

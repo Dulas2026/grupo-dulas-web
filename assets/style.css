@@ -53,7 +53,7 @@ header.site-header{
   min-width:260px;padding:10px;
   opacity:0;visibility:hidden;transition:opacity .18s ease, transform .18s ease;
 }
-.has-dropdown:hover .dropdown, .has-dropdown:focus-within .dropdown{
+.has-dropdown:hover .dropdown, .has-dropdown:focus-within .dropdown, .has-dropdown.open .dropdown{
   opacity:1;visibility:visible;transform:translateX(-50%) translateY(0);
 }
 .dropdown a{
