@@ -346,6 +346,20 @@ section{padding:84px 0;}
 .cta-final-alt a{color:var(--white);text-decoration:underline;}
 @media (max-width:600px){.cta-final-form{flex-direction:column;}.cta-final-form .cta-btn{width:100%;}}
 
+/* ---------- Fontanería/Electricidad/Climatización hero ---------- */
+.trades-hero{background:var(--paper-alt);padding:0;}
+.trades-hero-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:0;align-items:center;}
+.trades-hero-grid > div:first-child{padding:44px 0;}
+.trades-hero-grid h2{font-size:28px;line-height:1.3;margin:10px 0 14px;}
+.trades-hero-grid p{font-size:15.5px;color:var(--ink-soft);max-width:440px;}
+.trades-hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-top:22px;}
+.trades-hero-photo img{width:100%;height:320px;object-fit:cover;display:block;}
+@media (max-width:900px){
+  .trades-hero-grid{grid-template-columns:1fr;}
+  .trades-hero-grid > div:first-child{padding:32px 32px 0;}
+  .trades-hero-photo img{height:220px;}
+}
+
 /* ---------- Suministros promo ---------- */
 .suministros-promo{background:linear-gradient(120deg,var(--paper) 0%,var(--paper-alt) 100%);padding:56px 0;}
 .suministros-promo-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:48px;align-items:center;}
