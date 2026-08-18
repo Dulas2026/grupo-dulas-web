@@ -389,8 +389,8 @@ section{padding:84px 0;}
 
 .suministros-features{padding:10px 0 50px;}
 .suministros-features-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;}
-.suministros-features-grid .sf-icon{font-size:26px;margin-bottom:10px;}
-.suministros-features-grid h4{margin:0 0 8px;font-size:16px;font-family:var(--sans);}
+.suministros-features-grid > div{border-top:2px solid var(--accent);padding-top:14px;}
+.suministros-features-grid h4{margin:0 0 8px;font-size:16px;font-family:var(--sans);font-weight:700;}
 .suministros-features-grid p{margin:0;font-size:13.5px;color:var(--ink-soft);font-family:var(--sans);line-height:1.5;}
 
 .suministros-cta-bar{background:var(--paper-alt);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:30px 0;}
