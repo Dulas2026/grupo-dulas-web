@@ -73,17 +73,59 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
-  // Formulario de contacto: validación básica + mensaje de confirmación
-  var form = document.querySelector('.contact-form');
-  if (form) {
+  // Formularios de contacto (página Contacto, Suministros y CTA final de cada
+  // servicio): se envían por fetch() al endpoint real (Formspree) y solo
+  // entonces se muestra el mensaje de confirmación. Antes, un bug enviaba
+  // este mensaje sin llegar a mandar los datos a ningún sitio.
+  var forms = document.querySelectorAll('.contact-form, .suministros-form, .cta-final-form');
+  forms.forEach(function (form) {
+    var action = form.getAttribute('action') || '';
+
+    // Si el formulario apunta a "mailto:", dejamos el comportamiento nativo
+    // del navegador (abre el cliente de correo) sin interceptarlo.
+    if (action.indexOf('mailto:') === 0) return;
+
+    function getNote() {
+      var note = form.querySelector('.form-note');
+      if (note) return note;
+      note = form.nextElementSibling;
+      if (note && note.classList && note.classList.contains('form-note')) return note;
+      note = document.createElement('p');
+      note.className = 'form-note';
+      form.insertAdjacentElement('afterend', note);
+      return note;
+    }
+
     form.addEventListener('submit', function (e) {
       e.preventDefault();
-      var note = form.querySelector('.form-note');
-      if (note) {
-        note.textContent = 'Gracias, hemos recibido tu mensaje. Te contactaremos en breve.';
-        note.style.color = '#2f3e33';
-      }
-      form.reset();
+      var note = getNote();
+      var submitBtn = form.querySelector('button[type="submit"]');
+      var originalBtnText = submitBtn ? submitBtn.textContent : '';
+      if (submitBtn) submitBtn.disabled = true;
+      note.textContent = 'Enviando...';
+      note.style.color = '';
+
+      fetch(action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' },
+      }).then(function (response) {
+        if (response.ok) {
+          note.textContent = 'Gracias, hemos recibido tu mensaje. Te contactaremos en breve.';
+          note.style.color = '#2f3e33';
+          form.reset();
+        } else {
+          throw new Error('Respuesta no válida del servidor');
+        }
+      }).catch(function () {
+        note.textContent = 'No hemos podido enviar el mensaje. Escríbenos directamente a info@grupodulas.com o llámanos al 622 587 788.';
+        note.style.color = '#a33b3b';
+      }).finally(function () {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = originalBtnText;
+        }
+      });
     });
-  }
+  });
 });
