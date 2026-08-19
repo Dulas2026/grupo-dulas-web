@@ -467,7 +467,7 @@ footer.site-footer{background:var(--ink);color:#cfd3d6;padding:52px 0 28px;font-
   .nav-links > li{width:100%;}
   .nav-links a.nav-link{padding:12px 0;width:100%;}
   .dropdown{position:static;transform:none;box-shadow:none;border:none;display:none;width:100%;padding:0 0 0 12px;}
-  .has-dropdown.open .dropdown{display:block;}
+  .has-dropdown.open .dropdown{display:block;transform:none;}
   .has-dropdown > .nav-link::after{float:right;}
   .nav-toggle{display:block;}
   .nav .cta-btn{display:none;}
