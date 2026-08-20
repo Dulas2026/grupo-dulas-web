@@ -2,4 +2,4 @@ name = "grupo-dulas-web"
 compatibility_date = "2024-09-23"
 
 [assets]
-directory = "."
+directory = "./public"
