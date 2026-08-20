@@ -146,8 +146,10 @@ header.site-header{
 .ba-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:26px;}
 .ba-pair{border:1px solid var(--line);border-radius:12px;padding:16px;background:var(--paper-alt);}
 .ba-images{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.ba-images.single{grid-template-columns:1fr;}
 .ba-images figure{margin:0;}
 .ba-images img{width:100%;height:150px;object-fit:cover;border-radius:8px;display:block;background:var(--paper);}
+.ba-images.single img{height:220px;}
 .ba-images figcaption{
   margin-top:6px;text-align:center;font-family:var(--sans);font-size:11px;letter-spacing:.06em;
   text-transform:uppercase;color:var(--accent);font-weight:700;
