@@ -51,23 +51,24 @@ document.addEventListener('DOMContentLoaded', function () {
   // hero de Inicio con el efecto "cortina" arranca directamente al cargar
   // la página, sin nada delante que lo tape.)
 
-  // Servicios (Inicio): cada tarjeta sube desde abajo la primera vez que
-  // la sección entra en la pantalla al hacer scroll.
-  var svcGrid = document.querySelector('.svc-reveal-grid');
-  if (svcGrid) {
+  // Servicios (Inicio): cada tarjeta sube desde abajo, una a una, según va
+  // entrando ella misma en la pantalla al hacer scroll (no toda la sección
+  // de golpe, sino cada tarjeta por separado).
+  var svcCards = document.querySelectorAll('.svc-reveal-grid .service-card');
+  if (svcCards.length) {
     if ('IntersectionObserver' in window) {
-      var svcObserver = new IntersectionObserver(function (entries) {
+      var svcObserver = new IntersectionObserver(function (entries, observer) {
         entries.forEach(function (entry) {
           if (entry.isIntersecting) {
-            svcGrid.classList.add('in-view');
-            svcObserver.disconnect();
+            entry.target.classList.add('in-view');
+            observer.unobserve(entry.target);
           }
         });
-      }, { threshold: 0.15 });
-      svcObserver.observe(svcGrid);
+      }, { threshold: 0.15, rootMargin: '0px 0px -10% 0px' });
+      svcCards.forEach(function (card) { svcObserver.observe(card); });
     } else {
       // Sin soporte de IntersectionObserver: se muestran directamente.
-      svcGrid.classList.add('in-view');
+      svcCards.forEach(function (card) { card.classList.add('in-view'); });
     }
   }
 
