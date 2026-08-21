@@ -221,6 +221,13 @@ header.site-header{
 .includes-list li{font-family:var(--sans);font-size:14px;color:var(--ink);padding-left:26px;position:relative;}
 .includes-list li::before{content:"\2713";position:absolute;left:0;top:0;color:var(--accent);font-weight:700;}
 
+/* Lista con emoji propio (sin el check de .includes-list, ya llevan icono) */
+.emoji-list{display:grid;grid-template-columns:1fr 1fr;gap:10px 24px;margin:0 0 20px;padding:0;list-style:none;}
+.emoji-list li{font-family:var(--sans);font-size:14px;color:var(--ink);}
+@media (max-width:900px){.emoji-list{grid-template-columns:1fr;}}
+
+.vertical-tagline{font-family:var(--serif);font-style:italic;font-size:19px;color:var(--brand);margin-top:18px;}
+
 /* ---------- Un proyecto real (antes/después) ---------- */
 .ba-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:26px;}
 .ba-pair{border:1px solid var(--line);border-radius:12px;padding:16px;background:var(--paper-alt);}
