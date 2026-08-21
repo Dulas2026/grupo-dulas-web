@@ -140,15 +140,45 @@ header.site-header{
 .hero--curtain .hero-actions{animation-delay:1.5s;}
 @keyframes heroRiseIn{ to{opacity:1;transform:translateY(0);} }
 
+/* Tira de servicios en la cabecera: suben solos, automáticamente, nada más
+   cargar la página (sin necesidad de hacer scroll) — igual que el efecto de
+   CIMA / FOGESA / ARCO en la web de referencia (grupofogesa.com). */
+.hero-svc-strip{
+  display:flex;flex-wrap:wrap;gap:10px;margin-top:34px;
+}
+.hero-svc-chip{
+  opacity:0;transform:translateY(100%);
+  animation:heroRiseIn .6s cubic-bezier(.16,1,.3,1) forwards;
+  animation-delay:calc(1.75s + var(--chip-i) * .1s);
+  display:inline-flex;align-items:center;
+  padding:10px 18px;border-radius:999px;
+  background:var(--c,var(--brand));color:#fff;
+  font-size:13px;font-weight:700;letter-spacing:.2px;
+  text-decoration:none;white-space:nowrap;
+  box-shadow:0 10px 22px rgba(0,0,0,0.25);
+  transition:transform .2s ease, box-shadow .2s ease;
+}
+.hero-svc-chip:hover{transform:translateY(-3px);box-shadow:0 14px 28px rgba(0,0,0,0.32);}
+@media (max-width:700px){
+  .hero-svc-strip{margin-top:26px;gap:8px;}
+  .hero-svc-chip{padding:8px 14px;font-size:12px;}
+}
+@media (prefers-reduced-motion: reduce){
+  .hero-svc-chip{opacity:1;transform:none;animation:none;}
+}
+
 @media (max-width:700px){
   .hero--curtain{padding-bottom:50px;}
 }
 
-/* ---------- Servicios: cada tarjeta aparece de abajo arriba al entrar
-   ella misma en pantalla al hacer scroll (no toda la sección de golpe) ---------- */
+/* ---------- Servicios: cada tarjeta emerge desde abajo (su propia altura)
+   al entrar ella misma en pantalla al hacer scroll (no toda la sección de
+   golpe). El recorrido es grande (100% de su propia altura) a propósito,
+   para que se note claramente cómo "sube", igual que el efecto de
+   CIMA/FOGESA/ARCO en la web de referencia (grupofogesa.com). ---------- */
 .svc-reveal-grid .service-card{
-  opacity:0;transform:translateY(55px);
-  transition:opacity .65s cubic-bezier(.22,1,.36,1), transform .65s cubic-bezier(.22,1,.36,1);
+  opacity:0;transform:translateY(100%);
+  transition:opacity .9s cubic-bezier(.16,1,.3,1), transform .9s cubic-bezier(.16,1,.3,1);
 }
 .svc-reveal-grid .service-card.in-view{opacity:1;transform:translateY(0);}
 @media (prefers-reduced-motion: reduce){
