@@ -47,17 +47,42 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
+  // Efecto "cortina" del inicio: sus animaciones están pensadas para
+  // arrancar nada más verse la sección. Si la intro de arriba (el logo
+  // cayendo) tapa la pantalla varios segundos, hay que "reiniciar" estas
+  // animaciones justo cuando la intro desaparece; si no, se ejecutarían
+  // igualmente en segundo plano mientras la intro las tapa y el usuario
+  // nunca las vería moverse.
+  var heroCurtainStarted = false;
+  function restartHeroCurtain() {
+    if (heroCurtainStarted) return;
+    heroCurtainStarted = true;
+    var hero = document.querySelector('.hero--curtain');
+    if (!hero) return;
+    var els = hero.querySelectorAll(
+      '.hero-curtain, .hero-curtain-logo, .eyebrow, h1, p.lead, .hero-actions, .hero-svc-panel'
+    );
+    els.forEach(function (el) { el.style.animation = 'none'; });
+    void hero.offsetWidth; // fuerza el reflow para poder reiniciar la animación
+    els.forEach(function (el) { el.style.animation = ''; });
+  }
+
   // Intro: saltar animación
   var skip = document.querySelector('.skip-intro');
   var intro = document.getElementById('intro');
+  var introTimeoutId = null;
+  if (intro) {
+    introTimeoutId = setTimeout(function () {
+      intro.style.display = 'none';
+      restartHeroCurtain();
+    }, 9500);
+  }
   if (skip && intro) {
     skip.addEventListener('click', function () {
       intro.style.display = 'none';
+      if (introTimeoutId) clearTimeout(introTimeoutId);
+      restartHeroCurtain();
     });
-  }
-  // Oculta la intro del todo tras la animación para que no bloquee clics
-  if (intro) {
-    setTimeout(function () { intro.style.display = 'none'; }, 9500);
   }
 
   // Mostrar la intro solo la primera vez por sesión de navegador
@@ -65,6 +90,8 @@ document.addEventListener('DOMContentLoaded', function () {
     try {
       if (sessionStorage.getItem('gd_intro_shown')) {
         intro.style.display = 'none';
+        if (introTimeoutId) clearTimeout(introTimeoutId);
+        restartHeroCurtain();
       } else {
         sessionStorage.setItem('gd_intro_shown', '1');
       }
