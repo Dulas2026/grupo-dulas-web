@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var hero = document.querySelector('.hero--curtain');
     if (!hero) return;
     var els = hero.querySelectorAll(
-      '.hero-curtain, .hero-curtain-logo, .eyebrow, h1, p.lead, .hero-actions, .hero-svc-panel'
+      '.hero-curtain, .hero-curtain-logo, .eyebrow, h1, p.lead, .hero-actions'
     );
     els.forEach(function (el) { el.style.animation = 'none'; });
     void hero.offsetWidth; // fuerza el reflow para poder reiniciar la animación
@@ -97,6 +97,26 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     } catch (err) {
       /* sessionStorage no disponible: se muestra la intro igualmente */
+    }
+  }
+
+  // Servicios (Inicio): cada tarjeta sube desde abajo la primera vez que
+  // la sección entra en la pantalla al hacer scroll.
+  var svcGrid = document.querySelector('.svc-reveal-grid');
+  if (svcGrid) {
+    if ('IntersectionObserver' in window) {
+      var svcObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            svcGrid.classList.add('in-view');
+            svcObserver.disconnect();
+          }
+        });
+      }, { threshold: 0.15 });
+      svcObserver.observe(svcGrid);
+    } else {
+      // Sin soporte de IntersectionObserver: se muestran directamente.
+      svcGrid.classList.add('in-view');
     }
   }
 
