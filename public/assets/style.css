@@ -400,6 +400,18 @@ section{padding:84px 0;}
 .about-stat-num{font-family:var(--serif);font-size:64px;line-height:1;color:var(--accent);text-transform:none;letter-spacing:0;}
 .about-stat-label{font-size:14px;letter-spacing:0.4px;text-transform:none;color:var(--brand);max-width:260px;line-height:1.5;}
 
+/* Foto de equipo en "Quiénes somos" (Inicio), con velo en los colores de la
+   marca para que no rompa con el resto de la página. */
+.about-stat-photo{position:relative;overflow:hidden;padding:0;display:block;border:none;}
+.about-stat-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 20%;}
+.about-stat-photo-overlay{
+  position:absolute;left:0;right:0;bottom:0;padding:22px 24px 20px;
+  background:linear-gradient(0deg, var(--brand-dark) 0%, rgba(16,27,46,0.78) 55%, rgba(16,27,46,0) 100%);
+  display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;
+}
+.about-stat-photo .about-stat-num{font-size:44px;color:var(--accent);}
+.about-stat-photo .about-stat-label{color:#fff;font-size:13px;max-width:220px;line-height:1.45;}
+
 .block{padding:56px 0;border-bottom:1px solid var(--line);}
 .block:last-of-type{border-bottom:none;}
 .block .eyebrow{margin-bottom:14px;}
