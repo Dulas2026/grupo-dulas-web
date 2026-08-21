@@ -47,58 +47,9 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // Efecto "cortina" del inicio: sus animaciones están pensadas para
-  // arrancar nada más verse la sección. Si la intro de arriba (el logo
-  // cayendo) tapa la pantalla varios segundos, hay que "reiniciar" estas
-  // animaciones justo cuando la intro desaparece; si no, se ejecutarían
-  // igualmente en segundo plano mientras la intro las tapa y el usuario
-  // nunca las vería moverse.
-  var heroCurtainStarted = false;
-  function restartHeroCurtain() {
-    if (heroCurtainStarted) return;
-    heroCurtainStarted = true;
-    var hero = document.querySelector('.hero--curtain');
-    if (!hero) return;
-    var els = hero.querySelectorAll(
-      '.hero-curtain, .hero-curtain-logo, .eyebrow, h1, p.lead, .hero-actions'
-    );
-    els.forEach(function (el) { el.style.animation = 'none'; });
-    void hero.offsetWidth; // fuerza el reflow para poder reiniciar la animación
-    els.forEach(function (el) { el.style.animation = ''; });
-  }
-
-  // Intro: saltar animación
-  var skip = document.querySelector('.skip-intro');
-  var intro = document.getElementById('intro');
-  var introTimeoutId = null;
-  if (intro) {
-    introTimeoutId = setTimeout(function () {
-      intro.style.display = 'none';
-      restartHeroCurtain();
-    }, 9500);
-  }
-  if (skip && intro) {
-    skip.addEventListener('click', function () {
-      intro.style.display = 'none';
-      if (introTimeoutId) clearTimeout(introTimeoutId);
-      restartHeroCurtain();
-    });
-  }
-
-  // Mostrar la intro solo la primera vez por sesión de navegador
-  if (intro) {
-    try {
-      if (sessionStorage.getItem('gd_intro_shown')) {
-        intro.style.display = 'none';
-        if (introTimeoutId) clearTimeout(introTimeoutId);
-        restartHeroCurtain();
-      } else {
-        sessionStorage.setItem('gd_intro_shown', '1');
-      }
-    } catch (err) {
-      /* sessionStorage no disponible: se muestra la intro igualmente */
-    }
-  }
+  // (Se retiró la intro de pantalla negra con el logo cayendo: ahora el
+  // hero de Inicio con el efecto "cortina" arranca directamente al cargar
+  // la página, sin nada delante que lo tape.)
 
   // Servicios (Inicio): cada tarjeta sube desde abajo la primera vez que
   // la sección entra en la pantalla al hacer scroll.
