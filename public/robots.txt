@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://grupodulas.com/sitemap.xml
