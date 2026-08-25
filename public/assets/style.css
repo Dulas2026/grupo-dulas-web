@@ -479,6 +479,10 @@ section{padding:84px 0;}
 .suministros-promo h2{font-size:34px;line-height:1.25;margin:10px 0 16px;}
 .accent-text{color:var(--accent);}
 .suministros-promo p{font-size:16px;color:var(--ink-soft);max-width:460px;}
+.suministros-promo--simple{text-align:center;}
+.suministros-promo--simple h2,
+.suministros-promo--simple p{max-width:640px;margin-left:auto;margin-right:auto;}
+.suministros-promo--simple .suministros-badges{justify-content:center;}
 .suministros-badges{display:flex;gap:18px;flex-wrap:wrap;margin:20px 0 26px;font-size:13.5px;color:var(--ink);}
 .suministros-badges span{white-space:nowrap;}
 .suministros-photo img{width:100%;height:320px;object-fit:cover;border-radius:14px;display:block;}
