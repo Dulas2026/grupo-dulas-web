@@ -401,6 +401,12 @@ section{padding:84px 0;}
 .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center;}
 .stats-grid .stat-num{font-size:34px;margin-bottom:6px;}
 .stats-grid .stat-label{font-family:var(--sans);font-size:12px;letter-spacing:1px;text-transform:uppercase;opacity:0.75;}
+.service-stats{padding-top:48px;padding-bottom:48px;}
+.stats-ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:32px;}
+.stats-ctas .cta-btn{background:var(--accent);}
+.stats-ctas .cta-btn:hover{background:#a67a3f;}
+.stats-ctas .btn-outline{border-color:rgba(255,255,255,0.65);color:#fff;}
+@media (max-width:600px){.service-stats .stats-grid{grid-template-columns:1fr 1fr;}}
 
 .about{background:var(--paper-alt);}
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;}
