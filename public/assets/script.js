@@ -127,4 +127,47 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     });
   });
+
+  // Slider antes/después interactivo (páginas de servicios): arrastrando o
+  // tocando la imagen se revela más "antes" o más "después".
+  document.querySelectorAll('[data-ba-slider]').forEach(function (slider) {
+    var before = slider.querySelector('.ba-slider-before');
+    var handle = slider.querySelector('.ba-slider-handle');
+    if (!before || !handle) return;
+    var dragging = false;
+
+    function setPos(pct) {
+      pct = Math.max(0, Math.min(100, pct));
+      before.style.clipPath = 'inset(0 ' + (100 - pct) + '% 0 0)';
+      handle.style.left = pct + '%';
+    }
+
+    function posFromEvent(e) {
+      var rect = slider.getBoundingClientRect();
+      var clientX = e.touches && e.touches.length ? e.touches[0].clientX : e.clientX;
+      var x = clientX - rect.left;
+      return (x / rect.width) * 100;
+    }
+
+    function start(e) {
+      dragging = true;
+      setPos(posFromEvent(e));
+    }
+    function move(e) {
+      if (!dragging) return;
+      setPos(posFromEvent(e));
+      if (e.cancelable) e.preventDefault();
+    }
+    function end() { dragging = false; }
+
+    slider.addEventListener('mousedown', start);
+    window.addEventListener('mousemove', move);
+    window.addEventListener('mouseup', end);
+
+    slider.addEventListener('touchstart', start, { passive: true });
+    window.addEventListener('touchmove', move, { passive: false });
+    window.addEventListener('touchend', end);
+
+    setPos(50);
+  });
 });
