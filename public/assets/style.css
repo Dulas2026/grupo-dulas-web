@@ -253,6 +253,8 @@ header.site-header{
 .ba-pair h4::after{content:"";position:absolute;left:0;bottom:0;width:36px;height:3px;background:var(--accent);}
 .ba-pair p{margin:0;font-size:13.5px;color:var(--ink-soft);font-family:var(--sans);line-height:1.5;}
 .ba-pair-wide{grid-column:1 / -1;}
+.ba-pair-tag{font-family:var(--sans);text-transform:uppercase;letter-spacing:1.5px;font-size:11px;color:var(--accent);font-weight:700;margin:16px 0 4px;}
+.ba-pair-tag + h4{margin-top:0;}
 .ba-images.multi{grid-template-columns:repeat(auto-fill, minmax(150px, 1fr));}
 .ba-images.multi img{height:130px;}
 
