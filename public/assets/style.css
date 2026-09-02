@@ -417,7 +417,7 @@ section{padding:84px 0;}
 @media (max-width:600px){.partners-strip p{font-size:13.5px;}}
 
 .stats{background:var(--brand);color:var(--white);}
-.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center;}
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:24px;text-align:center;}
 .stats-grid .stat-num{font-size:34px;margin-bottom:6px;}
 .stats-grid .stat-label{font-family:var(--sans);font-size:12px;letter-spacing:1px;text-transform:uppercase;opacity:0.75;}
 .service-stats{padding-top:48px;padding-bottom:48px;}
